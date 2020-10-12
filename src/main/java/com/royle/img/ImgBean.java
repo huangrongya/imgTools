@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 
 
@@ -12,6 +13,8 @@ public class ImgBean {
 
     //图片文件
     private File file;
+
+    private InputStream stream;
 
     //距左距离
     private int left;
@@ -81,6 +84,14 @@ public class ImgBean {
 
     public void setImg_width(int img_width) {
         this.img_width = img_width;
+    }
+
+    public InputStream getStream() {
+        return stream;
+    }
+
+    public void setStream(InputStream stream) {
+        this.stream = stream;
     }
 
     //控制最高和最宽，如果是图片不够

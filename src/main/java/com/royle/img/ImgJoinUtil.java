@@ -55,10 +55,15 @@ public class ImgJoinUtil {
             if (CollectionUtils.isNotEmptyCollection(imgBeanList)) {
                 Graphics graphics = bufferedImage.createGraphics();
                 for (ImgBean imgBean : imgBeanList) {
-                    if (null == imgBean.getFile()) {
+                    if (null == imgBean.getFile()&&null==imgBean.getStream()) {
                         continue;
                     }
-                    BufferedImage image = ImageIO.read(imgBean.getFile());
+                    BufferedImage image = null;
+                    if (imgBean.getFile()==null){
+                        image = ImageIO.read(imgBean.getStream());
+                    }else {
+                        image = ImageIO.read(imgBean.getFile());
+                    }
                     int img_height = imgBean.getImg_height();
                     int img_width = imgBean.getImg_width();
                     if (img_height < 1) {
