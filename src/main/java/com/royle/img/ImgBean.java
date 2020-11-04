@@ -16,6 +16,8 @@ public class ImgBean {
 
     private InputStream stream;
 
+    private BufferedImage bufferedImage;
+
     //距左距离
     private int left;
 
@@ -94,9 +96,17 @@ public class ImgBean {
         this.stream = stream;
     }
 
+    public BufferedImage getBufferedImage() {
+        return bufferedImage;
+    }
+
+    public void setBufferedImage(BufferedImage bufferedImage) {
+        this.bufferedImage = bufferedImage;
+    }
+
     //控制最高和最宽，如果是图片不够
     public void setMaxWidthAndHeight(int maxWidth, int maxHeight) {
-        BufferedImage bufferedImage = getBufferedImage();
+        BufferedImage bufferedImage = getBufferedImageByFileAndStream();
         if (null == bufferedImage) {
             return;
         }
@@ -133,7 +143,7 @@ public class ImgBean {
 
 
     //得到图片
-    public BufferedImage getBufferedImage() {
+    public BufferedImage getBufferedImageByFileAndStream() {
         if (null == file) {
             return null;
         }
@@ -152,7 +162,7 @@ public class ImgBean {
 
     //根据宽度放大图片
     public void toWidthUpperCase(int maxWidth) {
-        BufferedImage bfimg = getBufferedImage();
+        BufferedImage bfimg = getBufferedImageByFileAndStream();
         if (null == bfimg) {
             return;
         }
