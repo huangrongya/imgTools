@@ -11,7 +11,7 @@ public class Test {
     public static void main(String[] args) {
 
         try {
-            String img = "http://img.sjgo365.com/sjgo/unified-platform/upload/category/2020/10/F671DFF1D25125876B796BA82E495CA1.JPEG";
+            String img = "http://wx1.sinaimg.cn/mw600/72453b34gy1gkb7oirmv2j20gi0gg7iu.jpg";
 
             ImgBean anchorImgBean = new ImgBean();
             anchorImgBean.setBufferedImage(CopeImgUtil.cutHeadImages(img));
@@ -20,7 +20,7 @@ public class Test {
             anchorImgBean.setImg_width(32*3);
             anchorImgBean.setImg_height(32*3);
 
-            URL posterUrl = new URL(img);
+            URL posterUrl = new URL("http://wx2.sinaimg.cn/mw600/00869HDlly1gkd38r2l2yj30fl0flam1.jpg");
             ImgBean posterBean = new ImgBean();
             posterBean.setStream(posterUrl.openStream());
             posterBean.setLeft(27*3);
